@@ -15,7 +15,7 @@ export class TVService {
     return Observable.if(
       () => search,
       request(search).map(series => series.filter((serie: any) => serie.original_name.includes(search))),
-      request(search)
+      request()
     )
                     
   }
