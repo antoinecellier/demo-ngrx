@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { truncate } from 'lodash'
 
 @Component({
@@ -7,15 +7,20 @@ import { truncate } from 'lodash'
   styleUrls: ['./tv-card.component.css']
 })
 export class TvCardComponent implements OnInit {
+  
   @Input() serie
+  @Output() loadCasting = new EventEmitter()
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   truncate(overview) {
     return truncate(overview, { length: 80 })
+  }
+
+  prefetchCasting(serieId) {
+    this.loadCasting.emit(serieId)
   }
 
 }

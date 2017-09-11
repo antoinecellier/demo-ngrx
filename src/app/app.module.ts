@@ -4,16 +4,19 @@ import { HttpModule  } from '@angular/http';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms'
 
 import { TVService } from './tv.service'
+import { CastingService } from './casting.service'
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TvCardComponent } from './tv-card/tv-card.component';
+import { CastingComponent } from './casting/casting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    TvCardComponent
+    TvCardComponent,
+    CastingComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { TvCardComponent } from './tv-card/tv-card.component';
     ReactiveFormsModule
   ],
   providers: [
-    TVService
+    TVService,
+    CastingService
   ],
   bootstrap: [AppComponent]
 })

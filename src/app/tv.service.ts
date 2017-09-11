@@ -7,7 +7,7 @@ import { Subject } from 'rxjs/Subject'
 export class TVService {
   public series = new Subject()
 
-  private key = ''
+  private key = '8f364df072fe490fc11e59d3312a7e73'
   constructor(private http: Http) { }
 
   loadTvs(search?) {
