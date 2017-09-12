@@ -10,12 +10,14 @@ import { CastingService } from './casting.service'
 })
 export class AppComponent implements OnInit {
   public series
+  public castings
 
   constructor(private tvService: TVService,
               private castingService: CastingService){}
 
   ngOnInit() {
     this.series = this.tvService.getTVs() //get "store"
+    this.castings = this.castingService.getCastings() //get "store"
     this.tvService.loadTvs() // dispatch action
   }
 
@@ -24,6 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   loadCasting(serieId) {
-    this.castingService.loadCasting(serieId)
+    this.castingService.loadCasting(serieId) // dispatch action
   }
 }

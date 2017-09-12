@@ -1,9 +1,9 @@
 <navbar (refreshSeries)="filterSeries($event)"></navbar>
-
 <div class="d-flex flex-wrap justify-content-center"> 
-  <tv-card [serie]="serie" 
-           *ngFor="let serie of series | async"
-           (loadCasting)="loadCasting($event)"> 
+  <tv-card *ngFor="let serie of series | async"
+    [serie]="serie" 
+    [casting]="castings | async | get:serie.id"
+    (loadCasting)="loadCasting($event)"> 
   </tv-card> 
 </div>
 

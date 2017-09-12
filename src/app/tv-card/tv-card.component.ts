@@ -9,6 +9,7 @@ import { truncate } from 'lodash'
 export class TvCardComponent implements OnInit {
   
   @Input() serie
+  @Input() casting
   @Output() loadCasting = new EventEmitter()
 
   constructor() {}

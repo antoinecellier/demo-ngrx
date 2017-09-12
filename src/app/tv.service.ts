@@ -14,7 +14,7 @@ export class TVService {
     this.http.get(`https://api.themoviedb.org/3/tv/popular?api_key=${this.key}`)
       .map(response => response.json())
       .map(json => json.results.splice(0, 10))
-      .map(series => search ? series.filter((serie: any) => serie.original_name.includes(search)) : series) 
+      .map(series => search ? series.filter((serie: any) => serie.original_name.toUpperCase().includes(search.toUpperCase())) : series) 
       .subscribe(results => this.series.next(results))
   }
 

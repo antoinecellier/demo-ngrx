@@ -5,18 +5,22 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 
 @Injectable()
 export class CastingService {
-  public castings = new BehaviorSubject([])
+  public castings = new BehaviorSubject(new Map())
 
   private key = '8f364df072fe490fc11e59d3312a7e73'
   constructor(private http: Http) { }
 
   loadCasting(serie?) {
-    this.http.get(`https://api.themoviedb.org/3/tv/${serie}/credits?api_key=${this.key}`)
-      .map(response => response.json())
-      .subscribe(result => {
-        const casting = this.castings.getValue().splice(this.castings.getValue().length, 0, result.cast)
-        console.log(casting)
-      })  
+    let castingsResult = this.castings.getValue()
+    if(!castingsResult.get(serie)) {
+      this.http.get(`https://api.themoviedb.org/3/tv/${serie}/credits?api_key=${this.key}`)
+        .map(response => response.json())
+        .subscribe(result => {
+          castingsResult = new Map(castingsResult)
+          castingsResult.set(serie, result.cast)
+          this.castings.next(castingsResult)
+        })  
+    }
   }
 
   getCastings() {

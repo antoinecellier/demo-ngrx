@@ -7,10 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CastingComponent implements OnInit {
   @Input() casting
+  @Input() display = false
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toogleCastingDisplay() {
+    this.display = !this.display
   }
 
 }

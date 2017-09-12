@@ -11,12 +11,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TvCardComponent } from './tv-card/tv-card.component';
 import { CastingComponent } from './casting/casting.component';
 
+import { SelectPipe } from './pipes/get.pipe'
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     TvCardComponent,
-    CastingComponent
+    CastingComponent,
+    SelectPipe
   ],
   imports: [
     BrowserModule,

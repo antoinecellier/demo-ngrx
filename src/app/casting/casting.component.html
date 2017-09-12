@@ -1,1 +1,6 @@
-<a href="#" class="btn btn-primary">Show casting</a>
+<a [hidden]="display" href="#" class="btn btn-primary" (click)="toogleCastingDisplay()">Show casting</a>
+<a [hidden]="!display" href="#" class="btn btn-primary" (click)="toogleCastingDisplay()">Hide casting</a>
+<ul [hidden]="!display" class="list-group mt-2">
+    <li *ngFor="let cast of casting" class="list-group-item">{{cast.character}}<br/>{{cast.name}}</li>
+</ul>
+
