@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule  } from '@angular/http';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms'
 
+import { apiKey } from '../environments/config'
+
 import { TVService } from './tv.service'
 
 import { AppComponent } from './app.component';
@@ -22,7 +24,8 @@ import { TvCardComponent } from './tv-card/tv-card.component';
     ReactiveFormsModule
   ],
   providers: [
-    TVService
+    TVService,
+    { provide: 'apiKey', useValue: apiKey }
   ],
   bootstrap: [AppComponent]
 })
