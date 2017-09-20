@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
 @Injectable()
 export class TVService {
 
-  private key = ''
-  constructor(private http: Http) { }
+  constructor(private http: Http,
+              @Inject('apiKey') private apiKey: string) { }
 
   getTVs(search?) {
-    const request = (search?) => this.http.get(`https://api.themoviedb.org/3/tv/popular?api_key=${this.key}`)
+    const request = (search?) => this.http.get(`https://api.themoviedb.org/3/tv/popular?api_key=${this.apiKey}`)
                                          .map(response => response.json())
                                          .map(json => json.results.splice(0, 10))
     return Observable.if(
