@@ -1,16 +1,3 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-  <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">Series</a>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <form class="form-inline mt-2 mt-md-0" [formGroup]="searchForm">
-            <input class="form-control mr-sm-2" type="text" formControlName="search" placeholder="Search"/>            
-        </form>
-      </li>
-    </ul>
-  </div>
-</nav>
+<form class="form-inline d-flex justify-content-center m-3" [formGroup]="searchForm"> 
+        <input class="form-control mr-sm-2" type="text" formControlName="search" placeholder="Votre recherche :"/>        
+</form>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TVService } from './tv.service'
+import { CastingService } from './casting.service'
+import { StatefulService } from './stateful.service'
 
 @Component({
   selector: 'app-root',
@@ -9,14 +11,23 @@ import { TVService } from './tv.service'
 })
 export class AppComponent implements OnInit {
   public series
+  public castings
 
-  constructor(private tvService: TVService){}
+  constructor(private tvService: TVService,
+              private castingService: CastingService,
+              private statefulService: StatefulService){}
 
   ngOnInit() {
-    this.series = this.tvService.getTVs()
+    this.series = this.statefulService.getTVs() //get "store"
+    this.castings = this.statefulService.getCastings() //get "store"
+    this.tvService.loadTvs() // dispatch action
   }
 
   filterSeries(search?) {
-    this.series = this.tvService.getTVs(search)
+    this.tvService.loadTvs(search) // dispatch action
+  }
+
+  loadCasting(serieId) {
+    this.castingService.loadCasting(serieId) // dispatch action
   }
 }
