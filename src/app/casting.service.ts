@@ -1,30 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+
+import { StatefulService } from './stateful.service'
 
 @Injectable()
 export class CastingService {
-  public castings = new BehaviorSubject(new Map())
 
-  private key = '8f364df072fe490fc11e59d3312a7e73'
-  constructor(private http: Http) { }
+  constructor(private http: Http, 
+              private statefulService: StatefulService,
+              @Inject('apiKey') private apiKey: string) { }
 
   loadCasting(serie?) {
-    let castingsResult = this.castings.getValue()
+    let castingsResult = this.statefulService.castings.getValue()
+
     if(!castingsResult.get(serie)) {
-      this.http.get(`https://api.themoviedb.org/3/tv/${serie}/credits?api_key=${this.key}`)
+      this.http.get(`https://api.themoviedb.org/3/tv/${serie}/credits?api_key=${this.apiKey}`)
         .map(response => response.json())
         .subscribe(result => {
           castingsResult = new Map(castingsResult)
           castingsResult.set(serie, result.cast)
-          this.castings.next(castingsResult)
+          this.statefulService.castings.next(castingsResult)
         })  
     }
   }
-
-  getCastings() {
-    return this.castings.asObservable()
-  }
-
 }

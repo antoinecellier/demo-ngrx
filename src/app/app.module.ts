@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 import { HttpModule  } from '@angular/http';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms'
 
+import { apiKey } from '../environments/config'
+
 import { TVService } from './tv.service'
 import { CastingService } from './casting.service'
+import { StatefulService } from './stateful.service'
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -25,11 +28,13 @@ import { SelectPipe } from './pipes/get.pipe'
     BrowserModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     TVService,
-    CastingService
+    CastingService,
+    StatefulService,
+    { provide: 'apiKey', useValue: apiKey }
   ],
   bootstrap: [AppComponent]
 })
