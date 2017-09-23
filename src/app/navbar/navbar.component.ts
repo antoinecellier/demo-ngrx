@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms'
 
 @Component({
@@ -9,6 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms'
 export class NavbarComponent implements OnInit  {
 
   @Output() refreshSeries = new EventEmitter()
+  @Input() search: String = ""
 
   searchForm = new FormGroup ({
     search: new FormControl()

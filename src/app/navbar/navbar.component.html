@@ -1,3 +1,9 @@
+<!-- Service statefull version -->
+<!-- <form class="form-inline d-flex justify-content-center m-3" [formGroup]="searchForm"> 
+        <input class="form-control mr-sm-2" [value]="search" type="text" formControlName="search" placeholder="Votre recherche :"/>        
+</form> -->
+
+<!-- Redux version -->
 <form class="form-inline d-flex justify-content-center m-3" [formGroup]="searchForm"> 
-        <input class="form-control mr-sm-2" type="text" formControlName="search" placeholder="Votre recherche :"/>        
+        <input class="form-control mr-sm-2" [value]="search" type="text" formControlName="search" placeholder="Votre recherche :"/>        
 </form>

@@ -16,6 +16,12 @@ import { CastingComponent } from './casting/casting.component';
 
 import { SelectPipe } from './pipes/get.pipe'
 
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './redux/reducer/index'
+import { EffectsModule } from '@ngrx/effects';
+import { effects } from './redux/effect/index'
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +35,9 @@ import { SelectPipe } from './pipes/get.pipe'
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects),
+    StoreDevtoolsModule.instrument({maxAge: 25})
   ],
   providers: [
     TVService,
