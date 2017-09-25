@@ -18,8 +18,6 @@ import { SelectPipe } from './pipes/get.pipe'
 
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './redux/reducer/index'
-import { EffectsModule } from '@ngrx/effects';
-import { effects } from './redux/effect/index'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
@@ -35,8 +33,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers),
-    EffectsModule.forRoot(effects),
+    StoreModule.forRoot(), // TODO: Add reducers
     StoreDevtoolsModule.instrument({maxAge: 25})
   ],
   providers: [

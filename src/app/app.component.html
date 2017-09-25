@@ -1,12 +1,7 @@
-<!-- Service statefull version -->
-<!-- <navbar (refreshSeries)="filterSeries($event)"></navbar> -->
-
-<!-- Redux version -->
 <navbar 
   (refreshSeries)="filterSeries($event)"
   [search]="search | async">
 </navbar>
-
 
 <div class="d-flex flex-wrap justify-content-center"> 
   <tv-card *ngFor="let serie of series | async"

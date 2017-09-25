@@ -24,29 +24,15 @@ export const serieReducer: ActionReducer<SerieState> = (state = initialState, ac
                 series: payload ? series.filter(serie => serie.original_name.toUpperCase().includes(payload.toUpperCase())) : series
             }
         case SerieActions.GET_SYNC_SERIE: 
-        return {
-                ...state,
-                series: series
-            }
-        case SerieActions.UPDATE_ASYNC_SEARCH:
-            return {
-                ...state,
-                search: payload,
-            }
-        case SerieActions.RECEIVE_SERIE: 
-            return {
-                ...state,
-                series: payload
-            }
+            // TODO: 
         default: {
             return state
         }
     }
 }
 
-export const selectState = createFeatureSelector<SerieState>('serie')
-export const selectSeries = createSelector(selectState, (state) => state.series)
-export const selectSearch = createSelector(selectState, (state) => state.search)
+// TODO: SELECTOR
+
 
 
 const series = [
@@ -462,3 +448,7 @@ const series = [
       "poster_path": "\/22C3s3PkS7D1F135n8t2uVazOhy.jpg"
     }
 ]
+
+// export const selectState = createFeatureSelector<SerieState>('serie')
+// export const selectSeries = createSelector(selectState, (state) => state.series)
+// export const selectSearch = createSelector(selectState, (state) => state.search)
