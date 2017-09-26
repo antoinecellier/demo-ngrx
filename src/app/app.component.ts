@@ -17,14 +17,13 @@ export class AppComponent implements OnInit {
     this.series = this.tvService.getTVs()
 
     // TODO : Update what series must listen
-    
+    this.tvService.loadSeries()
   }
 
   filterSeries(search?) {
     // TODO : Remove series assignement
-    this.series = this.tvService.getTVs(search)
 
     // TODO : Update what series must listen
-
+    this.tvService.loadSeries(search)
   }
 }
