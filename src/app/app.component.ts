@@ -13,11 +13,18 @@ export class AppComponent implements OnInit {
   constructor(private tvService: TVService){}
 
   ngOnInit() {
-    this.series = this.tvService.getTVs() //get "store"
-    this.tvService.loadTvs() // dispatch action
+    // TODO : Assign series with observable
+    this.series = this.tvService.getTVs()
+
+    // TODO : Update what series must listen
+    
   }
 
   filterSeries(search?) {
-    this.tvService.loadTvs(search) // dispatch action
+    // TODO : Remove series assignement
+    this.series = this.tvService.getTVs(search)
+
+    // TODO : Update what series must listen
+
   }
 }
