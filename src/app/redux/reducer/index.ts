@@ -4,7 +4,7 @@ export interface AppState {
   serie
 }
 
-export const reducers : AppState = { serie: serieReducer}
+export const reducers  = { serie: serieReducer}
 
 
 

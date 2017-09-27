@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule  } from '@angular/http';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms'
+import { EffectsModule } from '@ngrx/effects'
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { apiKey } from '../environments/config'
 
@@ -18,7 +20,7 @@ import { SelectPipe } from './pipes/get.pipe'
 
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './redux/reducer/index'
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { effects } from './redux/effect/index'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument({maxAge: 25})
+    StoreDevtoolsModule.instrument({maxAge: 25}),
+    EffectsModule.forRoot(effects)
   ],
   providers: [
     TVService,

@@ -15,8 +15,9 @@ const initialState : SerieState = {
     series: []
 }
 
-export const serieReducer: ActionReducer<SerieState> = (state = initialState, action: Action) => {
+export const serieReducer: ActionReducer<SerieState> = (state: SerieState = initialState, action: Action) => {
     let payload = toPayload(action)
+
     switch(action.type) {
         case SerieActions.UPDATE_SYNC_SEARCH:
             return {
@@ -26,8 +27,10 @@ export const serieReducer: ActionReducer<SerieState> = (state = initialState, ac
         case SerieActions.GET_SYNC_SERIE: 
             return {
               ...state,
-              series: series
+              series: series.splice(0, 10)
             }
+        case SerieActions.RECEIVE_SERIE: 
+            // TODO return new state
         default: {
             return state
         }
