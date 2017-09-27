@@ -12,7 +12,11 @@ export class AppComponent implements OnInit {
 
   constructor(private tvService: TVService){}
 
-  ngOnInit() { }
+  ngOnInit() { 
+    // TODO : get series
+  }
 
-  filterSeries(search?) { }
+  filterSeries(search?) {
+    // TODO : get filtered series
+  }
 }
