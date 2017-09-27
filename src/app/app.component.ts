@@ -26,53 +26,19 @@ export class AppComponent implements OnInit {
 
   // ####### Service stateful version ####### //
 
-  // ngOnInit() {
-  //   this.series = this.statefulService.getTVs() //get "store"
-  //   this.castings = this.statefulService.getCastings() //get "store"
-  //   this.tvService.loadTvs() // dispatch action
-  // }  
-
-  // filterSeries(search?) {
-  //   this.tvService.loadTvs(search)
-  // }
-  
-  // ######################################## //
-
-  // #### Store without effects version ##### //
-
-  // ngOnInit() {
-  //   this.series = this.store.select(selectSeries)
-  //   this.search = this.store.select(selectSearch)
-  //   this.castings = this.statefulService.getCastings() //get "store"
-  //   this.store.dispatch(new SerieAction.GetSyncSerie())
-  // }
-
-  // filterSeries(search?) {
-  //   this.store.dispatch(new SerieAction.UpdateSyncSearch(search))
-  // }
-
-  // loadCasting(serieId) {
-  //   this.castingService.loadCasting(serieId) // dispatch action
-  // }
-
-  // ######################################## //
-
-  // ###### Store with effects version ###### //
-
   ngOnInit() {
-    this.series = this.store.select(selectSeries)
-    this.search = this.store.select(selectSearch)
-    this.castings = this.statefulService.getCastings()
-    this.store.dispatch(new SerieAction.GetAsyncSerie())
-  }
+    // TODO : Get series from the store
+    this.series = this.statefulService.getTVs() //get "store"
+    // TODO : Get search from the store
+
+    this.castings = this.statefulService.getCastings() //get "store"
+
+    // TODO : Dispach action GET_SYNC_SERIE
+    this.tvService.loadTvs() // dispatch action
+  }  
 
   filterSeries(search?) {
-    this.store.dispatch(new SerieAction.UpdateAsyncSearch(search))
+    // TODO : Dispach action UPDATE_SYNC_SEARCH
+    this.tvService.loadTvs(search)
   }
-
-  loadCasting(serieId) {
-    this.castingService.loadCasting(serieId)
-  }
-
-  // ######################################## //
 }
