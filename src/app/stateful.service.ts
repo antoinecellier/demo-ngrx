@@ -6,6 +6,9 @@ import { Subject } from 'rxjs/Subject'
 @Injectable()
 export class StatefulService {
 
+  // TODO : add state for series
+  // TODO : add state for castings
+  
   getCastings() {}
 
   getTVs(search?) {}

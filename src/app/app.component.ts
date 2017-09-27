@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
               private castingService: CastingService){}
 
   ngOnInit() {
-    this.series = this.tvService.getTVs()
-    this.castings = this.castingService.getCastings()
+    this.series = this.tvService.getTVs() // TODO : get from single stateful service
+    this.castings = this.castingService.getCastings() // TODO : get from single stateful service
     this.tvService.loadTvs()
   }
 

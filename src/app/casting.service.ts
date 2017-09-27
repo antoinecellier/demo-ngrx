@@ -8,7 +8,7 @@ import { StatefulService } from './stateful.service'
 @Injectable()
 export class CastingService {
 
-  public castings = new BehaviorSubject(new Map())
+  public castings = new BehaviorSubject(new Map()) // TODO : Remove state
 
   constructor(private http: Http, 
               @Inject('apiKey') private apiKey: string) { }
@@ -22,11 +22,12 @@ export class CastingService {
         .subscribe(result => {
           castingsResult = new Map(castingsResult)
           castingsResult.set(serie, result.cast)
-          this.castings.next(castingsResult)
+          this.castings.next(castingsResult) // TODO : use another subject
         })  
     }
   }
 
+  // TODO : Remove state getter
   getCastings() {
     return this.castings.asObservable()
   }

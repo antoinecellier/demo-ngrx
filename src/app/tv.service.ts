@@ -8,7 +8,7 @@ import { StatefulService } from './stateful.service'
 @Injectable()
 export class TVService {
   
-  private series = new Subject()
+  private series = new Subject() // TODO : Remove state
 
   constructor(private http: Http, 
               @Inject('apiKey') private apiKey: string) { }
@@ -18,9 +18,10 @@ export class TVService {
       .map(response => response.json())
       .map(json => json.results.splice(0, 10))
       .map(series => search ? series.filter((serie: any) => serie.original_name.toUpperCase().includes(search.toUpperCase())) : series) 
-      .subscribe(results => this.series.next(results))
+      .subscribe(results => this.series.next(results)) // TODO : use another subject
   }
 
+  // TODO : Remove state getter
   getTVs() {
     return this.series.asObservable()
   }
