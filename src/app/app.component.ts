@@ -34,12 +34,12 @@ export class AppComponent implements OnInit {
 
     this.castings = this.statefulService.getCastings() //get "store"
 
-    // TODO : Dispach action GET_SYNC_SERIE
-    this.store.dispatch(new SerieAction.GetSyncSerie())
+    // TODO : Dispach action GET_ASYNC_SERIE
+    this.store.dispatch(new SerieAction.GetAsyncSerie())
   }  
 
   filterSeries(search?) {
-    // TODO : Dispach action UPDATE_SYNC_SEARCH
-    this.store.dispatch(new SerieAction.UpdateSyncSearch(search))
+    // TODO : Dispach action UPDATE_ASYNC_SEARCH
+    this.store.dispatch(new SerieAction.UpdateAsyncSearch(search))
   }
 }

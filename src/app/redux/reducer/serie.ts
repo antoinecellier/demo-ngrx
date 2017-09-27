@@ -30,7 +30,10 @@ export const serieReducer: ActionReducer<SerieState> = (state: SerieState = init
               series: series.splice(0, 10)
             }
         case SerieActions.RECEIVE_SERIE: 
-            // TODO return new state
+            return {
+              ...state,
+              series: payload
+            }
         default: {
             return state
         }

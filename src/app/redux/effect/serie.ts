@@ -16,7 +16,14 @@ export class SerieEffects{
     ) {}
 
     // TODO effect for fetch all
+    @Effect() fetchAll$ = this.updates$.ofType(SerieAction.GET_ASYNC_SERIE)
+                                            .switchMap(() => this.tvService.loadTvs())
+                                            .map(rep => new SerieAction.ReceiveSerie(rep))
     
     // TODO effect for update search
+    @Effect() updateSearch$ = this.updates$.ofType(SerieAction.UPDATE_ASYNC_SEARCH)
+                                            .map(toPayload)
+                                            .switchMap((payload) => this.tvService.loadTvs(payload))
+                                            .map(rep => new SerieAction.ReceiveSerie(rep))
 
 }
