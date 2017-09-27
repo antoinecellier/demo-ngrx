@@ -5,15 +5,9 @@ import { Subject } from 'rxjs/Subject'
 
 @Injectable()
 export class StatefulService {
-  public castings = new BehaviorSubject(new Map())
-  public series = new Subject()
 
-  getCastings() {
-    return this.castings.asObservable()
-  }
+  getCastings() {}
 
-  getTVs(search?) {
-    return this.series.asObservable()
-  }
+  getTVs(search?) {}
 
 }

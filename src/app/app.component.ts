@@ -14,17 +14,16 @@ export class AppComponent implements OnInit {
   public castings
 
   constructor(private tvService: TVService,
-              private castingService: CastingService,
-              private statefulService: StatefulService){}
+              private castingService: CastingService){}
 
   ngOnInit() {
-    this.series = this.statefulService.getTVs() //get "store"
-    this.castings = this.statefulService.getCastings() //get "store"
-    this.tvService.loadTvs() // dispatch action
+    this.series = this.tvService.getTVs()
+    this.castings = this.castingService.getCastings() //get "store"
+    this.tvService.loadTvs()
   }
 
   filterSeries(search?) {
-    this.tvService.loadTvs(search) // dispatch action
+    this.tvService.loadTvs(search)
   }
 
   loadCasting(serieId) {
