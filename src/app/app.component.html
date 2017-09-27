@@ -1,5 +1,5 @@
 <navbar (refreshSeries)="filterSeries($event)"></navbar>
 <div class="d-flex flex-wrap justify-content-center">
-  <tv-card [serie]="serie" *ngFor="let serie of series | async">
+  <tv-card [serie]="serie" *ngFor="let serie of series">
   </tv-card>
 </div>

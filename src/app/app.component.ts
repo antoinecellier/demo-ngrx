@@ -12,11 +12,7 @@ export class AppComponent implements OnInit {
 
   constructor(private tvService: TVService){}
 
-  ngOnInit() {
-    this.series = this.tvService.getTVs()
-  }
+  ngOnInit() { }
 
-  filterSeries(search?) {
-    this.series = this.tvService.getTVs(search)
-  }
+  filterSeries(search?) { }
 }
