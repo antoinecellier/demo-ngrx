@@ -11,8 +11,7 @@ export class TvCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   truncate(overview) {
     return truncate(overview, { length: 80 })
