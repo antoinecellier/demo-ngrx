@@ -28,17 +28,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // TODO : Get series from the store
-    this.series = this.statefulService.getTVs() //get "store"
+    this.series = this.store.select(selectSeries)
     // TODO : Get search from the store
+    this.search = this.store.select(selectSearch)
 
     this.castings = this.statefulService.getCastings() //get "store"
 
     // TODO : Dispach action GET_SYNC_SERIE
-    this.tvService.loadTvs() // dispatch action
+    this.store.dispatch(new SerieAction.GetSyncSerie())
   }  
 
   filterSeries(search?) {
     // TODO : Dispach action UPDATE_SYNC_SEARCH
-    this.tvService.loadTvs(search)
+    this.store.dispatch(new SerieAction.UpdateSyncSearch(search))
   }
 }

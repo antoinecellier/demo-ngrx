@@ -24,7 +24,10 @@ export const serieReducer: ActionReducer<SerieState> = (state = initialState, ac
                 series: payload ? series.filter(serie => serie.original_name.toUpperCase().includes(payload.toUpperCase())) : series
             }
         case SerieActions.GET_SYNC_SERIE: 
-            // TODO: 
+            return {
+              ...state,
+              series: series
+            }
         default: {
             return state
         }
@@ -32,7 +35,9 @@ export const serieReducer: ActionReducer<SerieState> = (state = initialState, ac
 }
 
 // TODO: SELECTOR
-
+export const selectSerieState = createFeatureSelector<SerieState>('serie')
+export const selectSeries = createSelector(selectSerieState,(state) => state.series)
+export const selectSearch = createSelector(selectSerieState, (state) => state.search)
 
 
 const series = [
