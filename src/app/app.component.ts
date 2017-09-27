@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.series = this.tvService.getTVs()
-    this.castings = this.castingService.getCastings() //get "store"
+    this.castings = this.castingService.getCastings()
     this.tvService.loadTvs()
   }
 
@@ -27,6 +27,6 @@ export class AppComponent implements OnInit {
   }
 
   loadCasting(serieId) {
-    this.castingService.loadCasting(serieId) // dispatch action
+    this.castingService.loadCasting(serieId)
   }
 }
