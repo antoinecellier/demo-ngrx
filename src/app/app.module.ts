@@ -33,7 +33,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(), // TODO: Add reducers
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({maxAge: 25})
   ],
   providers: [

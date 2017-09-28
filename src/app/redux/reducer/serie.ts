@@ -31,7 +31,9 @@ export const serieReducer: ActionReducer<SerieState> = (state = initialState, ac
     }
 }
 
-// TODO: SELECTOR
+export const selectState = createFeatureSelector<SerieState>('serie')
+export const selectSeries = createSelector(selectState, (state) => state.series)
+export const selectSearch = createSelector(selectState, (state) => state.search)
 
 
 
@@ -448,7 +450,3 @@ const series = [
       "poster_path": "\/22C3s3PkS7D1F135n8t2uVazOhy.jpg"
     }
 ]
-
-// export const selectState = createFeatureSelector<SerieState>('serie')
-// export const selectSeries = createSelector(selectState, (state) => state.series)
-// export const selectSearch = createSelector(selectState, (state) => state.search)
