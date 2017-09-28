@@ -10,7 +10,8 @@ export class CastingService {
 
   public castings = new BehaviorSubject(new Map()) // TODO : Remove state
 
-  constructor(private http: Http, 
+  constructor(private http: Http,
+              private statefulService: StatefulService, 
               @Inject('apiKey') private apiKey: string) { }
 
   loadCasting(serie?) {

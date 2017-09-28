@@ -11,6 +11,7 @@ export class TVService {
   private series = new Subject() // TODO : Remove state
 
   constructor(private http: Http, 
+              private statefulService: StatefulService,
               @Inject('apiKey') private apiKey: string) { }
 
   loadTvs(search?) {
