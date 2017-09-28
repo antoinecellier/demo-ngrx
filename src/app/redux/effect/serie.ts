@@ -11,7 +11,7 @@ import * as SerieReducer from '../../redux/reducer/serie'
 @Injectable()
 export class SerieEffects{
     constructor(
-        private updates$: Actions,
+        private actions$: Actions,
         private tvService: TVService
     ) {}
 
